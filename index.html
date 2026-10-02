@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pumpkin Soup Recipes - Design 04</title>
+
+  <link rel="stylesheet" href="styles/reset.css" />
+  <link rel="stylesheet" href="styles/index.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <nav class="nav-links">
+        <a href="#">Work</a>
+        <a href="#">Services</a>
+        <a href="#">Contacts</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-container">
+    <section class="recipes-hero">
+      
+      <!-- Text Content -->
+      <div class="recipes-content">
+        <h1 class="recipes-title">Pumpkin<br>Soup</h1>
+        <p class="recipes-description">
+          "Rich, creamy, and made with love the ultimate comfort food in a bowl."
+        </p>
+
+        <!-- View Recipe Button -->
+        <button class="recipe-btn" id="open-recipe-btn">
+          View Recipe &rarr;
+        </button>
+      </div>
+
+      <!-- Single Adaptive Graphic -->
+      <div class="recipes-media" id="open-recipe-img">
+        <img src="images/recipe.jpg" alt="Bowl of pumpkin soup with cheese and seeds" loading="lazy" />
+        <div class="media-overlay"><span>Click to open recipe</span></div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Recipe Modal Popup -->
+  <div class="modal-overlay" id="recipe-modal">
+    <div class="modal-content">
+      <button class="close-btn" id="close-recipe-btn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <span class="modal-tag">Recipe Guide</span>
+        <h2>Creamy Pumpkin Soup</h2>
+        <p class="modal-subtitle">A rich, comforting classic topped with feta cheese and seeds.</p>
+      </div>
+
+      <div class="recipe-grid">
+        <div class="recipe-box">
+          <h3>Ingredients</h3>
+          <ul>
+            <li>1 kg pumpkin (peeled & diced)</li>
+            <li>1 onion (chopped)</li>
+            <li>2 cloves garlic (minced)</li>
+            <li>3 cups vegetable stock</li>
+            <li>1/2 cup heavy cream</li>
+            <li>Feta cheese & pumpkin seeds</li>
+          </ul>
+        </div>
+
+        <div class="recipe-box">
+          <h3>Instructions</h3>
+          <ol>
+            <li>Sauté onion and garlic in oil until translucent.</li>
+            <li>Add pumpkin and stock. Simmer for 20 minutes until tender.</li>
+            <li>Blend until smooth, then stir in cream.</li>
+            <li>Serve hot with crumbled feta and toasted pumpkin seeds!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

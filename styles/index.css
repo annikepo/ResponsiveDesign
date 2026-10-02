@@ -1,0 +1,342 @@
+/* styles/index.css */
+
+/* ==========================================
+   1. Design Tokens & Variables
+   ========================================== */
+:root {
+  --bg-color: #ffffff;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --max-width: 1280px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+}
+
+/* ==========================================
+   2. Navbar (Right-Aligned Links)
+   ========================================== */
+.navbar {
+  width: 100%;
+  padding: 2rem 1.5rem;
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end; /* Align links to far right */
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================
+   3. Mobile Layout (Default: < 768px)
+   ========================================== */
+.main-container {
+  padding: 1rem 1.5rem 3rem;
+}
+
+.recipes-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.recipes-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.recipes-title {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.recipes-description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 400px;
+  margin-bottom: 1.75rem;
+}
+
+/* UI Recipe Button */
+.recipe-btn {
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  margin-bottom: 2rem;
+}
+
+.recipe-btn:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+/* Single Image Styling */
+.recipes-media {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.recipes-media img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.recipes-media:hover img {
+  transform: scale(1.03);
+}
+
+.recipes-media:hover .media-overlay {
+  opacity: 1;
+}
+
+/* ==========================================
+   4. Tablet Layout (768px to 1023px)
+   ========================================== */
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 2.5rem 3rem;
+  }
+
+  .main-container {
+    padding: 2rem 3rem 4rem;
+  }
+
+  .recipes-content {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .recipes-title {
+    font-size: 4rem;
+  }
+
+  .recipes-description {
+    max-width: 480px;
+  }
+
+  .recipes-media {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================
+   5. Desktop Layout (>= 1024px)
+   ========================================== */
+@media screen and (min-width: 1024px) {
+  .navbar {
+    padding: 3rem 5rem;
+  }
+
+  .main-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 5rem 5rem;
+  }
+
+  .recipes-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    min-height: 70vh;
+  }
+
+  .recipes-content {
+    align-items: flex-start;
+    text-align: left;
+    margin: 0;
+  }
+
+  .recipes-title {
+    font-size: 5rem;
+  }
+
+  .recipes-description {
+    font-size: 1.05rem;
+    max-width: 380px;
+  }
+
+  .recipes-media {
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* ==========================================
+   6. Modern UI Modal Popup
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  max-width: 650px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: #f3f3f3;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #e0e0e0;
+}
+
+.modal-tag {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.modal-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .recipe-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.recipe-box {
+  background: #f9f9f9;
+  padding: 1.25rem;
+  border-radius: 10px;
+}
+
+.recipe-box h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-box ul,
+.recipe-box ol {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.recipe-box li {
+  margin-bottom: 0.5rem;
+}
