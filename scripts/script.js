@@ -11,12 +11,22 @@ function closeModal() {
   modal.classList.remove('active');
 }
 
-openBtn.addEventListener('click', openModal);
-openImg.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
+if (openBtn) {
+  openBtn.addEventListener('click', openModal);
+}
 
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    closeModal();
-  }
-});
+if (openImg) {
+  openImg.addEventListener('click', openModal);
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', closeModal);
+}
+
+if (modal) {
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+}
